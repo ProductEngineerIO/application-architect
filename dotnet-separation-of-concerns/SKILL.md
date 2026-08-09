@@ -78,6 +78,6 @@ Check that requirements address:
 At any natural pause point (after an evaluation summary, after a deep-dive, after answering a follow-up), offer the user a way to move on rather than only prompting for more depth. For example, alongside a "want to dig deeper?" question, mention they can also say things like:
 - "back to menu" — returns to the `/dotnet-architect` topic menu
 - "done" / "that's all" — ends this skill's guidance here
-- or name another topic directly (e.g. "let's look at composition over inheritance instead")
+- or name another topic directly (e.g. "let's look at coupling and cohesion instead")
 
 If the user says any of these (or similar), stop the current line of questioning immediately and either invoke the `dotnet-architect` menu skill, end helpfully, or switch to the topic they named — don't keep probing for more detail first.
