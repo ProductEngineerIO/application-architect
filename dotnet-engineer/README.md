@@ -1,4 +1,4 @@
-# NET Architect Toolkit
+# .NET Engineer Toolkit
 
 Claude Code skills for software architecture guidance — general engineering principles (Tier 0) plus .NET-specific practices (Tiers 1-4).
 

@@ -3,7 +3,7 @@ name: dotnet-engineer
 description: Menu of .NET architecture guidance topics, including general software engineering principles (SOLID, DRY, KISS, YAGNI, Idempotency, coupling/cohesion, DDD) and .NET-specific topics (Dependency Injection, Configuration, Async/Await, Messaging & Event-Driven Architecture, Background Services, Data Access & EF Core, Error Handling, Structured Logging, Concurrency & Thread Safety, Input Validation, Authentication & Authorization, Testing, Records/Immutability, Distributed Tracing & Metrics, CQRS & MediatR, API Versioning & Contract Design, Nullable Reference Types, LINQ, Minimal APIs, Feature Flags, Caching, Performance & Memory), plus cross-cutting workflow tools (multi-lens Commit Review, everyday General Code Review, plain-language Business Impact Review, whole-codebase Overview). Use when the user asks for general software architecture or .NET architecture help, wants to see available architecture topics, or isn't sure which specific area to focus on.
 ---
 
-# NET Architect Toolkit
+# .NET Engineer Toolkit
 
 You are presenting a menu of available .NET architectural guidance topics. Show the user this menu and help them pick a direction.
 
