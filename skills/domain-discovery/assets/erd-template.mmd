@@ -1,0 +1,20 @@
+%% Domain ERD — <initiative>
+%% Confidence key: entities/attributes are annotated in comments since
+%% Mermaid erDiagram doesn't support inline styling per field.
+%% [C] = Confirmed, [R] = Reported, [A] = Assumed
+
+erDiagram
+    %% Example — replace with real entities as they're discovered.
+    %% ADVISOR ||--o{ PLAN : manages   %% [R] relationship not yet verified
+
+    ADVISOR {
+        string advisor_id "PK, Reported"
+        string name "Reported"
+    }
+
+    PLAN {
+        string plan_id "PK, Reported"
+        string sponsor_name "Reported"
+    }
+
+    ADVISOR ||--o{ PLAN : "manages [R]"

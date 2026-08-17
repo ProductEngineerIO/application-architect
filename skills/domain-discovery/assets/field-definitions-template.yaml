@@ -1,0 +1,35 @@
+# Feasibility-rated field definitions — <initiative>
+#
+# Shaped to merge into the existing central field-definition schema (object
+# field definitions: nullability, required-ness, versioning, lifecycle state)
+# actionable across UI, API, DB, BA, and UX.
+#
+# If your existing schema's shape differs from this, update this template to
+# match it during Phase 5 rather than maintaining two parallel formats.
+#
+# feasibility:
+#   rating: green | yellow | red
+#   effort: only set for yellow (rough T-shirt size, e.g. "2-3 days", "2-3 weeks")
+#   confidence: confirmed | reported | assumed
+#   source: system/person this was verified or reported against
+#   notes: free text, e.g. why it's red, what the spike needs to answer
+
+version: 0.1.0
+initiative: <initiative-slug>
+last_updated: <date>
+
+entities:
+  - name: <EntityName>
+    lifecycle_state: draft   # draft | reviewed | approved | deprecated
+    confidence: reported
+    fields:
+      - name: <field_name>
+        type: <string|int|date|...>
+        nullable: true
+        required: false
+        feasibility:
+          rating: yellow
+          effort: ""
+          confidence: reported
+          source: ""
+          notes: ""
