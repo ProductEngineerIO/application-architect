@@ -72,6 +72,35 @@ Tags travel with the data across all artifacts (glossary, tracker, ERD,
 YAML). When a tag is upgraded (e.g. Reported → Confirmed after someone checks
 a schema), update it everywhere it appears, not just in one file.
 
+## Cascading updates to downstream artifacts
+
+Most phases only update the artifact they're scoped to — Phase 0/1/2 mainly
+touch `glossary.md`, `entity-tracker.md`, and `erd.mmd`. Nothing about
+editing those files automatically fixes `field-definitions.yaml` or
+`capability-map.md`, which are only produced/refreshed in Phase 5 and by the
+capability-map generation step, respectively. If new or different
+information surfaces about an entity/attribute that already has a
+feasibility rating or a capability-map row, that downstream data is now
+stale and will not correct itself just because the tracker changed.
+
+Whenever this happens:
+
+1. Say so immediately and add the item to a "Needs re-verification" list in
+   `state.md` — don't silently patch the rating and don't wait for someone
+   to notice later.
+2. In `field-definitions.yaml`, don't overwrite the existing rating outright.
+   Add a `needs_reverification: true` (or equivalent) flag next to it along
+   with a short reason (e.g. "Phase 2 event storming revealed this is
+   created differently than assumed") so the last confirmed rating isn't
+   lost, only marked suspect.
+3. Treat a flagged item the same as any other unresolved Phase 5 item — it
+   gets re-verified against the real system before the rating is trusted
+   again, not silently re-guessed.
+
+This is what keeps `capability-map.md`'s "last verified" dates honest: a
+flagged item should surface there for exactly this reason rather than
+quietly carrying a stale rating forward.
+
 ## The phases
 
 Work through these roughly in order, but it's fine to loop back — e.g. a
@@ -135,6 +164,10 @@ in one room.
 - Feed new entities/relationships into `entity-tracker.md` and `erd.mmd`.
   Default new items from this phase to **Reported** unless the narrator is
   directly quoting a system behavior they've seen, not just described.
+- If a discovery in this phase touches an entity/attribute that already has
+  a feasibility rating in `field-definitions.yaml` or a row in
+  `capability-map.md`, follow "Cascading updates to downstream artifacts"
+  above rather than leaving that rating stale.
 - If the user is running this live with stakeholders in the room, offer to
   produce a lightweight recap they can share back to the group afterward.
 
@@ -187,8 +220,9 @@ feasibility-rated YAML that plugs into the field-definition schema.
 ## Generating the capability map
 
 Refresh `capability-map.md` whenever: Phase 5 assigns or changes a
-feasibility rating, the user explicitly asks to see the capability map, or a
-session is ending and in-scope entities have unsaved changes.
+feasibility rating, the user explicitly asks to see the capability map, a
+session is ending and in-scope entities have unsaved changes, or an in-scope
+item has been flagged `needs_reverification` since its rating was last set.
 
 This file is for PO/UX/BA readers with no data background, so:
 

@@ -13,6 +13,10 @@
 #   confidence: confirmed | reported | assumed
 #   source: system/person this was verified or reported against
 #   notes: free text, e.g. why it's red, what the spike needs to answer
+#   needs_reverification: true | false — set true (with a note explaining why)
+#     if a later phase surfaces new/conflicting info about a field that
+#     already has a rating. Don't overwrite the rating outright; flag it and
+#     resolve via Phase 5 before trusting it again.
 
 version: 0.1.0
 initiative: <initiative-slug>
@@ -33,3 +37,4 @@ entities:
           confidence: reported
           source: ""
           notes: ""
+          needs_reverification: false

@@ -44,10 +44,3 @@ full commit review, everyday PR-style review, plain-language business impact
 review, and whole-codebase overviews. See
 [skills/dotnet-engineer/README.md](skills/dotnet-engineer/README.md) for the
 complete skill list, installation, and usage.
-
-## Other contents
-
-- [_bmad/](_bmad/) — configuration for the BMad Method agent framework
-  (agents, workflows, and modules used alongside these skills).
-- [docs/](docs/) — planning, implementation, and test artifacts produced
-  while using these skills.
