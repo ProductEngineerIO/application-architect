@@ -10,7 +10,7 @@ Claude Code, GitHub Copilot) that supports the Agent Skills format — each
 skill is a `SKILL.md` with YAML frontmatter plus any supporting files it
 needs.
 
-## The two main skills
+## Skills
 
 ### [domain-discovery](skills/domain-discovery/SKILL.md)
 
